@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Presupuesto - WebWorks</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background-color: #444;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            max-width: 100px; /* Tamaño máximo del logo */
+            height: auto;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 700;
+        }
+
+        .cart-icon {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        /* Formulario */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], textarea, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .checkbox-group, .radio-group {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px;
+        }
+
+        .checkbox-group label, .radio-group label {
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            background-color: #444;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+    </style>
+    <script>
+        // Función que se ejecuta al enviar el formulario
+        function enviarSolicitud(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe
+            alert("Solicitud enviada con éxito"); // Mostrar mensaje de éxito
+        }
+
+        // Asociar la función al evento submit del formulario
+        window.onload = function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', enviarSolicitud);
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo WebWorks">
+        </div>
+        <nav>
+            <a href="index.html">WebWorks</a>
+            <a href="inicio.html">Inicio</a>
+            <a href="plantillas.html">Plantillas</a>
+            <a href="solicitudpresupuesto.html">Solicitud de Presupuesto</a>
+            <a href="sobrenosotros.html">Sobre Nosotros</a>
+            <a href="carrito.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+        </nav>
+    </header>
+
+    <!-- Formulario de Solicitud de Presupuesto -->
+    <div class="container">
+        <h2>Solicitud de Presupuesto</h2>
+        <form>
+            <!-- Descripción del Proyecto -->
+            <label for="description">Describe tu idea:</label>
+            <textarea id="description" name="description" placeholder="Escribe los detalles de tu idea o proyecto..."></textarea>
+
+            <!-- Métodos de Pago -->
+            <label for="payment-methods">Métodos de pago disponibles:</label>
+            <div class="checkbox-group" id="payment-methods">
+                <label><input type="checkbox" name="payment-methods" value="paypal"> PayPal</label>
+                <label><input type="checkbox" name="payment-methods" value="visa"> Visa</label>
+                <label><input type="checkbox" name="payment-methods" value="mastercard"> Mastercard</label>
+                <label><input type="checkbox" name="payment-methods" value="american-express"> American Express</label>
+            </div>
+
+            <!-- Tipo de Página Web -->
+            <label for="web-type">Orientación de la página web solicitada:</label>
+            <select id="web-type" name="web-type">
+                <option value="educativo">Educativo</option>
+                <option value="e-commerce">Comercio Electrónico</option>
+                <option value="salud">Salud</option>
+                <option value="blog">Blog Personal</option>
+                <option value="corporativo">Corporativo</option>
+                <option value="portfolio">Portfolio</option>
+            </select>
+
+            <!-- Selección de Paquetes -->
+            <label for="package">Elige un paquete:</label>
+            <div class="radio-group" id="package">
+                <label><input type="radio" name="package" value="gratuito"> Paquete Gratuito: Respuesta en 30 días - Gratis</label>
+                <label><input type="radio" name="package" value="especial"> Paquete Especial: Respuesta en 7 días - $50</label>
+                <label><input type="radio" name="package" value="premium"> Paquete Premium: Respuesta en 7 días + Plantilla - $100</label>
+            </div>
+
+            <!-- Enviar -->
+            <button type="submit" class="submit-btn">Enviar Solicitud</button>
+        </form>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2024 WebWorks. Todos los derechos reservados.</p>
+        <p>Síguenos en:
+            <a href="https://www.facebook.com">Facebook</a> |
+            <a href="https://x.com/">Twitter</a> |
+            <a href="https://www.instagram.com/">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+</html>
